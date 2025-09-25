@@ -1,5 +1,8 @@
-from pathlib import Path
 
+from pathlib import Path
+import os
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'miapp.settings')
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'tu-secret-key'
@@ -64,3 +67,4 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 # Auto field por defecto
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
