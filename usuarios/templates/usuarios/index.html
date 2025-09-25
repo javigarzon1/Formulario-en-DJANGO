@@ -1,0 +1,21 @@
+{% extends 'usuarios/base.html' %}
+{% block title %}Usuarios{% endblock %}
+{% block content %}
+<div class="text-end mb-3">
+  <a href="{% url 'create' %}" class="btn btn-primary">➕ Nuevo</a>
+</div>
+<table class="table table-striped">
+<thead><tr><th>ID</th><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Opción</th><th>Acciones</th></tr></thead>
+<tbody>
+{% for u in usuarios %}
+<tr>
+  <td>{{ u.id }}</td><td>{{ u.nombre }}</td><td>{{ u.email }}</td><td>{{ u.telefono }}</td><td>{{ u.opcion }}</td>
+  <td>
+    <a href="{% url 'edit' u.id %}" class="btn btn-sm btn-warning">Editar</a>
+    <a href="{% url 'delete' u.id %}" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
